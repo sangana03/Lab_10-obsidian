@@ -11,9 +11,6 @@ data(iris)
 # View structure
 str(iris)
 # 1. Histogram - Distribution of Sepal Length
-# Load dataset
-data(iris)
-
 # View structure
 str(iris)
 
