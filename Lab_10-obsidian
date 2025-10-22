@@ -1,0 +1,59 @@
+# ====================================================================
+# lab10_obsidian.R
+# Collaborative R Visualization Project
+# Dataset: iris 
+# Team Members:
+# Name (Roll Number)
+# ====================================================================
+
+# Load dataset
+data(iris)
+library(ggplot2)
+
+# View dataset
+head(iris)
+
+# 1. Histogram - Distribution of Sepal Length
+hist(iris$Sepal.Length,
+     main = "Histogram of Sepal Length",
+     xlab = "Sepal Length",
+     col = "skyblue",
+     border = "white")
+
+# 2. Scatter Plot - Sepal vs Petal Length
+plot(iris$Sepal.Length, iris$Petal.Length,
+     main = "Scatter Plot - Sepal vs Petal Length",
+     xlab = "Sepal Length",
+     ylab = "Petal Length",
+     col = iris$Species,
+     pch = 19)
+legend("topleft", legend = unique(iris$Species), col = 1:3, pch = 19)
+
+# 3. Box Plot - Petal Width by Species
+boxplot(Petal.Width ~ Species,
+        data = iris,
+        main = "Box Plot of Petal Width by Species",
+        ylab = "Petal Width",
+        col = c("lightcoral", "lightgreen", "lightblue"))
+
+# 4. Line Plot - Mean Petal Length per Species
+avg <- aggregate(Petal.Length ~ Species, iris, mean)
+plot(avg$Species, avg$Petal.Length,
+     type = "o",
+     main = "Average Petal Length by Species",
+     xlab = "Species",
+     ylab = "Average Petal Length",
+     col = "purple")
+
+# 5. Bar Plot - Count of Each Species
+species_count <- table(iris$Species)
+barplot(species_count,
+        main = "Bar Plot of Species Count",
+        xlab = "Species",
+        ylab = "Count",
+        col = c("pink", "orange", "cyan"))
+
+# Optional: Pie Chart
+pie(species_count,
+    main = "Pie Chart of Species",
+    col = c("pink", "orange", "cyan"))
