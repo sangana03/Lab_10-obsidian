@@ -3,6 +3,7 @@
 # Collaborative R Visualization Project
 # Dataset: iris 
 # Team Members:
+# Rudresh 2330
 # Name (Roll Number)
 # ====================================================================
 # Load dataset
@@ -22,7 +23,6 @@ hist(iris$Sepal.Length,
      col = "lightblue",
      border = "black")
 
-# You can also try color by species (optional enhancement)
 library(ggplot2)
 ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
   geom_histogram(binwidth = 0.3, color = "black", alpha = 0.7) +
