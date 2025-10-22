@@ -4,7 +4,11 @@
 # Dataset: iris 
 # Team Members:
 # Rudresh 2330
-# Name (Roll Number)
+# Sangana Ibrampurkar 2310
+# Sanika Hoble 2309
+# Unnat Umerye 2303
+# Shripad Chodankar 2317
+# Rakshita Kubal 23 
 # ====================================================================
 # Load dataset
 data(iris)
