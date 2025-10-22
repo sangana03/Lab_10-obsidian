@@ -8,7 +8,7 @@
 # Sanika Hoble 2309
 # Unnat Umerye 2303
 # Shripad Chodankar 2317
-# Rakshita Kubal 23 
+# Rakshita Kubal 2319 
 # Adit Amonkar 23 
 # ====================================================================
 # Load dataset
@@ -16,6 +16,7 @@ data(iris)
 
 # View structure
 str(iris)
+
 # 1. Histogram - Distribution of Sepal Length
 # View structure
 str(iris)
@@ -46,6 +47,22 @@ plot(iris$Sepal.Length, iris$Petal.Length,
 legend("topleft", legend = unique(iris$Species), col = 1:3, pch = 19)
 
 # 3. Box Plot - Petal Width by Species
+# Description:
+# This box plot visualizes the distribution of Petal Width for each species in the iris dataset.
+# It helps identify the spread, median, and any potential outliers.
+
+# Display first few rows to understand structure
+head(iris)
+
+# Box Plot to compare Petal Width across Species
+boxplot(Petal.Width ~ Species,
+        data = iris,
+        main = "Box Plot of Petal Width by Species",
+        xlab = "Species",
+        ylab = "Petal Width (cm)",
+        col = c("lightcoral", "lightgreen", "lightblue"),
+        border = "darkblue",
+        notch = TRUE)  #Adds notches to show median confidence interval
 
 # 4. Line Plot - Mean Petal Length per Species
 
