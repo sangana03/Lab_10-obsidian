@@ -9,6 +9,7 @@
 # Unnat Umerye 2303
 # Shripad Chodankar 2317
 # Rakshita Kubal 23 
+# Adit Amonkar 23 
 # ====================================================================
 # Load dataset
 data(iris)
@@ -51,3 +52,5 @@ legend("topleft", legend = unique(iris$Species), col = 1:3, pch = 19)
 # 5. Bar Plot - Count of Each Species
 
 # 6. Pie Chart
+
+# 7. Heat Map 
