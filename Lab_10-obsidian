@@ -5,8 +5,9 @@
 # Team Members:
 # Name (Roll Number)
 # ====================================================================
+# 1. Histogram - Distribution of Sepal Length
 
-Scatter Plot - Sepal vs Petal Length
+# 2. Scatter Plot - Sepal vs Petal Length
 plot(iris$Sepal.Length, iris$Petal.Length,
      main = "Scatter Plot - Sepal vs Petal Length",
      xlab = "Sepal Length",
@@ -15,3 +16,10 @@ plot(iris$Sepal.Length, iris$Petal.Length,
      pch = 19)
 legend("topleft", legend = unique(iris$Species), col = 1:3, pch = 19)
 
+# 3. Box Plot - Petal Width by Species
+
+# 4. Line Plot - Mean Petal Length per Species
+
+# 5. Bar Plot - Count of Each Species
+
+# 6. Pie Chart
