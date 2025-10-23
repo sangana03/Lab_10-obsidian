@@ -9,7 +9,7 @@
 # Unnat Umerye 2303
 # Shripad Chodankar 2317
 # Rakshita Kubal 2319 
-# Adit Amonkar 23 
+# Adhit Amonkar 2304
 # ====================================================================
 # Load dataset
 data(iris)
@@ -105,3 +105,22 @@ barplot(species_count,
 
 
 # 7. Heat Map 
+library(reshape2)
+
+# Compute correlation matrix
+cor_matrix <- cor(iris[, 1:4])
+
+# Melt correlation matrix for ggplot2
+melted_cor <- melt(cor_matrix)
+
+# Create heatmap
+ggplot(melted_cor, aes(x = Var1, y = Var2, fill = value)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient2(low = "blue", high = "red", mid = "white",
+                       midpoint = 0, limit = c(-1, 1),
+                       name = "Correlation") +
+  theme_minimal() +
+  labs(title = "Heatmap of Feature Correlations (Iris Dataset)",
+       x = "Features", y = "Features") +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+
