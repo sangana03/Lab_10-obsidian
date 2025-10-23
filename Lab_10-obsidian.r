@@ -76,7 +76,7 @@ grid(nx = NULL, ny = NULL, col = "grey", lty = "dotted")
 # 5. From the plot, we observe:
 #    - Iris-setosa has the smallest and least variable petal width.
 #    - Iris-versicolor shows moderate spread.
-#    - Iris-virginica has the largest pertal width range. 
+#    - Iris-virginica has the largest petal width range. 
 
 
 # 4. Line Plot - Mean Petal Length per Species
