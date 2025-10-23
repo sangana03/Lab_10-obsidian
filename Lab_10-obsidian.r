@@ -90,6 +90,15 @@ plot(avg$Species, avg$Petal.Length,
 
 
 # 5. Bar Plot - Count of Each Species
+species_count <- table(iris$Species)
+
+barplot(species_count,
+        main = "Bar Plot of Species Count",
+        xlab = "Species",
+        ylab = "Count",
+        col = c("gold", "darkgreen", "deepskyblue"),
+        border = "black",
+        space = 0.5)
 
 
 # 6. Pie Chart
