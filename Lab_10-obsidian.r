@@ -65,6 +65,13 @@ boxplot(Petal.Width ~ Species,
         notch = TRUE)  #Adds notches to show median confidence interval
 
 # 4. Line Plot - Mean Petal Length per Species
+avg <- aggregate(Petal.Length ~ Species, iris, mean)
+plot(avg$Species, avg$Petal.Length,
+     type = "o",
+     main = "Average Petal Length by Species",
+     xlab = "Species",
+     ylab = "Average Petal Length",
+     col = "purple")
 
 # 5. Bar Plot - Count of Each Species
 
