@@ -100,8 +100,23 @@ barplot(species_count,
         border = "black",
         space = 0.5)
 
+# 6. Pie Chart - Proportion of Each Species
+species_count <- table(iris$Species)
 
-# 6. Pie Chart
+# Create pie chart
+pie(species_count,
+    labels = paste(names(species_count), "\n", round(100 * species_count / sum(species_count), 1), "%"),
+    main = "Pie Chart of Iris Species Distribution",
+    col = c("gold", "darkgreen", "deepskyblue"),
+    border = "white",
+    clockwise = TRUE)
+
+# Add legend
+legend("topright",
+       legend = names(species_count),
+       fill = c("gold", "darkgreen", "deepskyblue"),
+       border = "white",
+       title = "Species")
 
 
 # 7. Heat Map 
