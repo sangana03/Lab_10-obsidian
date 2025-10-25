@@ -79,7 +79,7 @@ grid(nx = NULL, ny = NULL, col = "grey", lty = "dotted")
 #    - Iris-virginica has the largest petal width range. 
 
 
-# 4. Line Plot - Comparing Average petal and sepal lenght of all 3 species
+# 4. Line Plot - Comparing Average petal and sepal length of all 3 species
 ggplot(iris, aes(x = Species, group = 1)) + 
   
 
