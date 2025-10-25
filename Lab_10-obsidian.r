@@ -80,13 +80,26 @@ grid(nx = NULL, ny = NULL, col = "grey", lty = "dotted")
 
 
 # 4. Line Plot - Mean Petal Length per Species
-avg <- aggregate(Petal.Length ~ Species, iris, mean)
-plot(avg$Species, avg$Petal.Length,
-     type = "o",
-     main = "Average Petal Length by Species",
-     xlab = "Species",
-     ylab = "Average Petal Length",
-     col = "purple")
+ggplot(iris, aes(x = Species, group = 1)) + 
+  
+
+  stat_summary(aes(y = Petal.Length, color = "Petal Length"),
+               fun = mean, geom = "line", lwd = 1) +
+  stat_summary(aes(y = Petal.Length, color = "Petal Length"),
+               fun = mean, geom = "point", size = 3) +
+  
+
+  stat_summary(aes(y = Sepal.Length, color = "Sepal Length"),
+               fun = mean, geom = "line", lwd = 1) +
+  stat_summary(aes(y = Sepal.Length, color = "Sepal Length"),
+               fun = mean, geom = "point", size = 3) +
+  
+
+  labs(title = "Average Petal vs. Sepal Length by Species",
+       y = "Average Length (cm)",
+       color = "Measurement") + 
+  theme_minimal()
+
 
 
 # 5. Bar Plot - Count of Each Species
