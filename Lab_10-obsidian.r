@@ -18,9 +18,6 @@ data(iris)
 str(iris)
 
 # 1. Histogram - Distribution of Sepal Length
-# View structure
-str(iris)
-
 # Histogram for Sepal.Length
 hist(iris$Sepal.Length,
      main = "Distribution of Sepal Length in Iris Dataset",
