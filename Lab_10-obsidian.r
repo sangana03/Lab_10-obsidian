@@ -79,14 +79,27 @@ grid(nx = NULL, ny = NULL, col = "grey", lty = "dotted")
 #    - Iris-virginica has the largest petal width range. 
 
 
-# 4. Line Plot - Mean Petal Length per Species
-avg <- aggregate(Petal.Length ~ Species, iris, mean)
-plot(avg$Species, avg$Petal.Length,
-     type = "o",
-     main = "Average Petal Length by Species",
-     xlab = "Species",
-     ylab = "Average Petal Length",
-     col = "purple")
+# 4. Line Plot - Comparing Average petal and sepal length of all 3 species
+ggplot(iris, aes(x = Species, group = 1)) + 
+  
+
+  stat_summary(aes(y = Petal.Length, color = "Petal Length"),
+               fun = mean, geom = "line", lwd = 1) +
+  stat_summary(aes(y = Petal.Length, color = "Petal Length"),
+               fun = mean, geom = "point", size = 3) +
+  
+
+  stat_summary(aes(y = Sepal.Length, color = "Sepal Length"),
+               fun = mean, geom = "line", lwd = 1) +
+  stat_summary(aes(y = Sepal.Length, color = "Sepal Length"),
+               fun = mean, geom = "point", size = 3) +
+  
+
+  labs(title = "Average Petal vs. Sepal Length by Species",
+       y = "Average Length (cm)",
+       color = "Measurement") + 
+  theme_minimal()
+
 
 
 # 5. Bar Plot - Count of Each Species
@@ -100,8 +113,23 @@ barplot(species_count,
         border = "black",
         space = 0.5)
 
+# 6. Pie Chart - Proportion of Each Species
+species_count <- table(iris$Species)
 
-# 6. Pie Chart
+# Create pie chart
+pie(species_count,
+    labels = paste(names(species_count), "\n", round(100 * species_count / sum(species_count), 1), "%"),
+    main = "Pie Chart of Iris Species Distribution",
+    col = c("gold", "darkgreen", "deepskyblue"),
+    border = "white",
+    clockwise = TRUE)
+
+# Add legend
+legend("topright",
+       legend = names(species_count),
+       fill = c("gold", "green", "deepskyblue"),
+       border = "white",
+       title = "Species")
 
 
 # 7. Heat Map 
