@@ -127,7 +127,7 @@ pie(species_count,
 # Add legend
 legend("topright",
        legend = names(species_count),
-       fill = c("gold", "darkgreen", "deepskyblue"),
+       fill = c("gold", "green", "deepskyblue"),
        border = "white",
        title = "Species")
 
