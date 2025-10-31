@@ -99,16 +99,20 @@ ggplot(iris, aes(x = Species, group = 1)) +
 
 
 
-# 5. Bar Plot - Count of Each Species
-species_count <- table(iris$Species)
+# 5. Bar Plot - Mean Ratio of Petal Length to Petal Width per Species
+iris$Ratio <- iris$Petal.Length / iris$Petal.Width
+avg_ratio <- aggregate(Ratio ~ Species, data = iris, FUN = mean)
 
-barplot(species_count,
-        main = "Bar Plot of Species Count",
+barplot(avg_ratio$Ratio,
+        names.arg = avg_ratio$Species,
+        main = "Mean Petal Length-to-Width Ratio by Species",
         xlab = "Species",
-        ylab = "Count",
-        col = c("gold", "darkgreen", "deepskyblue"),
+        ylab = "Average Ratio",
+        col = c("orchid", "springgreen3", "steelblue"),
         border = "black",
-        space = 0.5)
+        density = c(25, 10, 40),
+        ylim = c(0, max(avg_ratio$Ratio) + 1))
+
 
 # 6. Pie Chart - Proportion of Each Species
 species_count <- table(iris$Species)
