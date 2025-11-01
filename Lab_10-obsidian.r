@@ -144,14 +144,29 @@ melted_cor <- melt(cor_matrix)
 
 # Create heatmap
 ggplot(melted_cor, aes(x = Var1, y = Var2, fill = value)) +
-  geom_tile(color = "purple") +
-  geom_text(aes(label = round(value, 2)), color = "black", size = 4)+
-  #scale_fill_gradient(low = "lightblue", high = "darkred", name = "Correlation")+
-
-  scale_fill_gradient2(low = "lightblue", high = "red", mid = "purple",
+  geom_tile(color = "black", linewidth = 0.8) +
+  geom_text(aes(label = round(value, 2),
+                color = abs(value) > 0.5), size = 6, fontface = "bold") +
+  scale_color_manual(values = c("black", "white"), guide = "none") +
+  
+  # Kcolor scheme
+  scale_fill_gradient2(low = "yellow", mid = "orange", high = "red",
                        midpoint = 0, limit = c(-1, 1),
                        name = "Correlation") +
-  theme_minimal() +
-  labs(title = "Heatmap of Feature Correlations (Iris Dataset)",
-       x = "Features", y = "Features") +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+  
+  # symmetrical just for clarity for same features correlation is always 1 
+  geom_abline(intercept = 0, slope = 1, color = "black", linetype = "dashed") +
+  
+  # Labeling
+  labs(title = "Heatmap of Feature Correlations",
+       subtitle = "Showing pairwise correlation between flower measurements",
+       x = "Features ", y = "") +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 16),
+    plot.subtitle = element_text(hjust = 0.5, size = 12, color = "gray30"),
+    axis.text.x = element_text(angle = 30, vjust = 1, hjust = 0.5, face = "bold"),
+    axis.text.y = element_text(face = "bold"),
+    panel.grid = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  )
